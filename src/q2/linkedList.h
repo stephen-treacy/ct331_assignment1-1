@@ -5,23 +5,23 @@ typedef struct listElementStruct {
 	char* data;
 	size_t size;
 	struct listElementStruct* next;
-} listEl;
+} listElement;
 
-listEl* createEl(char* data, size_t size);
+listElement* createElement(char* data, size_t size);
 
-void traverse(listEl* start);
+void traverse(listElement* start);
 
-listEl* insertAfter(listEl* after, char* data, size_t size);
+listElement* insertAfter(listElement* after, char* data, size_t size);
 
-void deleteAfter(listEl* after);
+void deleteAfter(listElement* after);
 
-int length(listEl* list);
+int length(listElement* list);
 
-void push(listEl** list, char* data, size_t size);
+void push(listElement** list, char* data, size_t size);
 
-listEl* pop(listEl** list);
+listEl* pop(listElement** list);
 
-void enqueue(listEl** list, char* data, size_t size);
+void enqueue(listElement** list, char* data, size_t size);
 
-listEl* dequeue(listEl* list);
+listElement* dequeue(listElement* list);
 #endif
