@@ -1,21 +1,27 @@
 #ifndef CT331_ASSIGNMENT_LINKED_LIST
 #define CT331_ASSIGNMENT_LINKED_LIST
 
-typedef struct listElementStruct listElement;
+typedef struct listElementStruct {
+	char* data;
+	size_t size;
+	struct listElementStruct* next;
+} listEl;
 
-//Creates a new linked list element with given content of size
-//Returns a pointer to the element
-listElement* createEl(char* data, size_t size);
+listEl* createEl(char* data, size_t size);
 
-//Prints out each element in the list
-void traverse(listElement* start);
+void traverse(listEl* start);
 
-//Inserts a new element after the given el
-//Returns the pointer to the new element
-listElement* insertAfter(listElement* after, char* data, size_t size);
+listEl* insertAfter(listEl* after, char* data, size_t size);
 
-//Delete the element after the given el
-void deleteAfter(listElement* after);
+void deleteAfter(listEl* after);
 
+int length(listEl* list);
 
+void push(listEl** list, char* data, size_t size);
+
+listEl* pop(listEl** list);
+
+void enqueue(listEl** list, char* data, size_t size);
+
+listEl* dequeue(listEl* list);
 #endif
