@@ -7,7 +7,7 @@ typedef struct listElementStruct {
 	struct listElementStruct* next;
 } listElement;
 
-listElement* createElement(char* data, size_t size);
+listElement* createEl(char* data, size_t size);
 
 void traverse(listElement* start);
 
