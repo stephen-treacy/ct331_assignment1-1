@@ -1,0 +1,6 @@
+Less memory is required to traverse a linked list in reverse, however it is not stable so not always preferred.
+
+Use a memory pool. Allocate an area of memory at the beginning of the program of type Node. Pointers to this area 
+are stored in an array. All you have to do is get the pointers from the array. This does not improve 
+the overall speed, but if you have frequent memory allocations this will increase the responsiveness of the program 
+at the cost of some space for the array.
