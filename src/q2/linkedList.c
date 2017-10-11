@@ -4,7 +4,7 @@
 #include "linkedList.h"
 
 listEl* createEl(char* data, size_t size) {
-	listEl* e = malloc(sizeof(listEl));
+	listElement* e = malloc(sizeof(listElement));
 	if (e == NULL) {
 		//if there's an error
 		return NULL; //indicates an error
@@ -23,7 +23,7 @@ listEl* createEl(char* data, size_t size) {
 }
 
 void traverse(listElement* start) {
-	listEl* current = start;
+	listElement* current = start;
 	while (current != NULL) {
 		printf("%s\n", current->data);
 		current = current->next;
@@ -31,28 +31,28 @@ void traverse(listElement* start) {
 }
 
 //adds an element after the given one and returns the new pointer
-listEl* insertAfter(listEl* el, char* data, size_t size) {
-	listEl* newEl = createEl(data, size);
-	listEl* next = el->next;
-	newEl->next = next;
+listElement* insertAfter(listElement* el, char* data, size_t size) {
+	listElement* newEl = createEl(data, size);
+	listElement* next = el->next;
+	newElement->next = next;
 	el->next = newEl;
 	return newEl;
 }
 
 
 //deletes an element
-void deleteAfter(listEl* after) {
-	listEl* delete = after->next;
-	listEl* newNext = delete->next;
+void deleteAfter(listElement* after) {
+	listElement* delete = after->next;
+	listElement* newNext = delete->next;
 	after->next = newNext;
 	//frees memory after malloc
 	free(delete->data);
 	free(delete);
 }
 
-int length(listEl* list)
+int length(listElement* list)
 {
-	listEl* current = list;
+	listElement* current = list;
 	int num = 0;
 	while (current != NULL)
 	{
@@ -62,31 +62,31 @@ int length(listEl* list)
 	return num;
 }
 
-listEl* pop(listEl** list)
+listElement* pop(listElement** list)
 {
-	listEl* temp = *list;
+	listElement* temp = *list;
 	*list = (*list)->next;
 	return temp;
 }
 
-void push(listEl** list, char* data, size_t size)
+void push(listElement** list, char* data, size_t size)
 {
-	listEl* newEl = createEl(data, size);
+	listElement* newEl = createEl(data, size);
 	newEl->next = *list;
 	*list = newEl;
 }
 
-void enqueue(listEl** list, char* data, size_t size)
+void enqueue(listElement** list, char* data, size_t size)
 {
-	listEl* newEl = createEl(data, size);
+	listElement* newEl = createEl(data, size);
 	newEl->next = *list;
 	*list = newEl;
 }
 
-listEl* dequeue(listEl* list)
+listElement* dequeue(listElement* list)
 {
-	listEl* current = list;
-	listEl* temp;
+	listElement* current = list;
+	listElement* temp;
 	while (current != NULL)
 	{
 		if (current->next->next == NULL)
